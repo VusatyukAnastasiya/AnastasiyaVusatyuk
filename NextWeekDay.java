@@ -1,51 +1,52 @@
 
+    
     enum WeekDays {
     SUNDAY {
         @Override
         public WeekDays execute() {
-            WeekDays nextDay = WeekDays.SUNDAY.getNext(SUNDAY);
+            WeekDays nextDay = getNext(SUNDAY);
             return nextDay;
         }
     },
     MONDAY {
         @Override
         public WeekDays execute() {
-            WeekDays nextDay = WeekDays.MONDAY.getNext(MONDAY);
+            WeekDays nextDay = getNext(MONDAY);
             return nextDay;
         }
     },
     TUESDAY {
         @Override
         public WeekDays execute() {
-            WeekDays nextDay = WeekDays.TUESDAY.getNext(TUESDAY);
+            WeekDays nextDay = getNext(TUESDAY);
             return nextDay;
         }
     },
     WEDNESDAY {
         @Override
         public WeekDays execute() {
-            WeekDays nextDay = WeekDays.WEDNESDAY.getNext(WEDNESDAY);
+            WeekDays nextDay = getNext(WEDNESDAY);
             return nextDay;
         }
     },
     THURSDAY {
         @Override
         public WeekDays execute() {
-            WeekDays nextDay = WeekDays.THURSDAY.getNext(THURSDAY);
+            WeekDays nextDay = getNext(THURSDAY);
             return nextDay;
         }
     },
     FRIDAY {
         @Override
         public WeekDays execute() {
-            WeekDays nextDay = WeekDays.FRIDAY.getNext(FRIDAY);
+            WeekDays nextDay = getNext(FRIDAY);
             return nextDay;
         }
     },
     SATURDAY {
         @Override
         public WeekDays execute() {
-            WeekDays nextDay = WeekDays.SATURDAY.getNext(SATURDAY);
+            WeekDays nextDay = getNext(SATURDAY);
             return nextDay;
         }
     };
@@ -54,18 +55,15 @@
 
     public WeekDays getNext(WeekDays arr)
         {
-            int index = arr.ordinal();
-            int nextIndex = index + 1;
-            WeekDays[] days = WeekDays.values();
-            nextIndex %= days.length;
-            return days[nextIndex];
+            final int nextIndex = arr.ordinal() + 1;
+            WeekDays[] days = arr.values();
+            return days[nextIndex % days.length];
         }
 }
 
-
 public class NextWeekDay {
     public static void main(String[] args) {
-        WeekDays day = WeekDays.THURSDAY;
+        WeekDays day = WeekDays.FRIDAY;
         WeekDays result = day.execute();
         System.out.println("Next week day is: " + result);
 
