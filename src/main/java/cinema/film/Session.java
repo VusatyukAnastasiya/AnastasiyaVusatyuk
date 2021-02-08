@@ -1,7 +1,9 @@
 package cinema.film;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Locale;
 
 public class Session {
 
@@ -16,8 +18,9 @@ public class Session {
     @Override
     public String toString() {
         return "Session{" +
-                "datetime='" + datetime + '\'' +
+                "datetime=" + DateTimeFormatter.ofPattern("d MMM yyyy, HH:mm", Locale.US).format(datetime) +
                 ", tickets=" + tickets +
                 '}';
     }
 }
+
